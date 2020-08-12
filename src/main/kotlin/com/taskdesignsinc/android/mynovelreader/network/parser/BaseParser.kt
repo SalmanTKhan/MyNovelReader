@@ -6,7 +6,7 @@ import okhttp3.Request
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 
-abstract class BaseParser(val name: String, val serverUrl: String) {
+abstract class BaseParser(var name: String = "Unknown", val serverUrl: String = "Constco.com") {
     private val client = OkHttpClient()
 
     open val latestReleaseUrl = ""
@@ -16,11 +16,13 @@ abstract class BaseParser(val name: String, val serverUrl: String) {
             .url(url)
             .build()
         val response = client.newCall(request).execute()
-        return Jsoup.parse(response.body.toString())
+        return Jsoup.parse(response.body?.string())
     }
 
     open fun getPage(url: String, page: Int): String {
         return url
     }
     abstract fun getNovels(url: String): List<Novel>
+    abstract fun getNovel(url: String): Novel
+    abstract fun getChapters(url: String)
 }

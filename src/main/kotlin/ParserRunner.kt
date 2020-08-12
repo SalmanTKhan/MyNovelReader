@@ -1,9 +1,11 @@
-import okhttp3.OkHttpClient
+import com.taskdesignsinc.android.mynovelreader.network.parser.NovelFullParser
 
 object ParserRunner {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        val client = OkHttpClient()
+        val parser = NovelFullParser()
+        val novels = parser.getNovels(parser.getPage(parser.latestReleaseUrl, 1))
+        println("$novels")
     }
 }
