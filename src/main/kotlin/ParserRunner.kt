@@ -7,5 +7,7 @@ object ParserRunner {
         val parser = NovelFullParser()
         val novels = parser.getNovels(parser.getPage(parser.latestReleaseUrl, 1))
         println("$novels")
+        val novel = parser.getNovel(novels[0].url)
+        println(novel)
     }
 }
