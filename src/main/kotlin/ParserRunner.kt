@@ -9,5 +9,7 @@ object ParserRunner {
         println("$novels")
         val novel = parser.getNovel(novels[0].url)
         println(novel)
+        val chapterText = parser.getChapterText(novel.chapters[0].url)
+        println(chapterText)
     }
 }

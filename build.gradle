@@ -16,6 +16,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "org.jsoup:jsoup:1.13.1"
     implementation "com.squareup.okhttp3:okhttp:4.8.1"
+    api enforcedPlatform('com.google.cloud:libraries-bom:8.1.0')
+    api 'com.google.cloud:google-cloud-storage'
+    api 'com.google.guava:guava'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
